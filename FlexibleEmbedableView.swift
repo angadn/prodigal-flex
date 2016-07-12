@@ -31,7 +31,7 @@ protocol FitSuperviewView: FitSuperviewHeightView {
 
 extension FitSuperviewView {
     func fit(view: UIView) {
-        (self as! UIView).snp_makeConstraints { (make) -> Void in
+        (self as! UIView).snp_makeConstraints { make in
             make.size.equalTo(view)
             make.center.equalTo(view)
         }
