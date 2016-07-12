@@ -31,7 +31,7 @@ protocol FitSuperviewView: FitSuperviewHeightView {
 
 extension FitSuperviewView {
     func fit(view: UIView) {
-        (self as! UIView).snp_makeConstraints { make in
+        (self as! UIView).snp_makeConstraints { (make) -> Void in
             make.size.equalTo(view)
             make.center.equalTo(view)
         }
@@ -60,6 +60,12 @@ extension FlexibleEmbedableView {
         // Add our view
         self.viewWillRender(view)
         self.addSubview(view)
+
+        view.snp_makeConstraints { make in
+            make.size.equalTo(self as! UIView)
+            make.center.equalTo(self as! UIView)
+        }
+
         self.viewDidRender(view)
     }
 
